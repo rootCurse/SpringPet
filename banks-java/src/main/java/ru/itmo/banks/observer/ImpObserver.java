@@ -1,15 +1,14 @@
 package ru.itmo.banks.observer;
 
-public class ImpObserver implements Observer{
-    private String _name;
+public class ImpObserver implements Observer {
+    private final String _name;
 
-    public ImpObserver(String name)
-    {
+    public ImpObserver(String name) {
         _name = name;
     }
 
     @Override
-    public void Update(Subject iSubject) {
+    public void update(Subject iSubject) {
         System.out.println("Bank change interest");
     }
 

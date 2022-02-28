@@ -1,6 +1,6 @@
 package ru.itmo.banks;
 
-import ru.itmo.banks.cards.GeneralCard;
+import ru.itmo.banks.card.GeneralCard;
 import ru.itmo.banks.observer.Observer;
 import ru.itmo.banks.observer.Subject;
 
@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Person implements Observer {
 
-    private String _firstName;
-    private String _secondName;
-    private int _personId;
+    private final String _firstName;
+    private final String _secondName;
+    private final int _personId;
     private String _address;
     private int _passport;
-    private List<GeneralCard> _cards;
+    private final List<GeneralCard> _cards;
 
     public Person(String firstName, String secondName, int id) {
         _firstName = firstName;
@@ -25,13 +25,12 @@ public class Person implements Observer {
         _cards = new ArrayList<GeneralCard>();
     }
 
-    public void AddCard(GeneralCard card)
-    {
+    public void addCard(GeneralCard card) {
         _cards.add(card);
     }
 
     @Override
-    public void Update(Subject iSubject) {
+    public void update(Subject iSubject) {
         System.out.println("Change in bank conditions");
     }
 
@@ -62,8 +61,8 @@ public class Person implements Observer {
     public void set_passport(int _passport) {
         this._passport = _passport;
     }
-    public List<GeneralCard> get_cards()
-    {
+
+    public List<GeneralCard> get_cards() {
         return _cards;
     }
 }
