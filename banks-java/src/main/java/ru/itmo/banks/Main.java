@@ -1,14 +1,20 @@
 package ru.itmo.banks;
 
+import ru.itmo.banks.bank.Bank;
+import ru.itmo.banks.bank.CentralBank;
+import ru.itmo.banks.card.PercentInfo;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) throws BanksException {
-        /*List<Pair<Double, Double>> percents = new ArrayList<Pair<Double, Double>>() {
+        Map<Double, Double> percents = new HashMap<Double, Double>() {
         };
-        percents.add(new Pair<Double, Double>(100.0, 1.0));
+        percents.put(100.0, 0.01);
         CentralBank centralBank = CentralBank.getInstance();
-        Bank bank = centralBank.addBank(100000, 10000, new PercentInfo(1, 1, percents));
+        Bank bank = centralBank.addBank(10000, 10000, new PercentInfo(0.1, 0.15, percents));
         Person person = centralBank.addPerson("Ivan", "Ivanov", bank);
-        UserConsole console = new UserConsole(person);
-        console.start();*/
+        UserConsole userConsole = new UserConsole(person);
     }
 }
