@@ -7,10 +7,15 @@ import java.util.List;
 import java.util.Set;
 
 public interface HumanDAO {
-    public HumansEntity findById(int humanId);
-    public void save(HumansEntity human);
-    public void update(HumansEntity human);
-    public void delete(HumansEntity human);
-    public Set<CatsEntity> findCatsOFHuman(int humanId);
-    public List<HumansEntity> getAll();
+    HumansEntity findById(int humanId);
+
+    void save(HumansEntity human);
+
+    void update(HumansEntity human);
+
+    void delete(HumansEntity human);
+
+    Set<CatsEntity> findCatsOFHuman(int humanId);
+
+    List<HumansEntity> getAll();
 }

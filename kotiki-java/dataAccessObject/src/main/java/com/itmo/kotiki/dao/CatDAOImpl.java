@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class CatDAOImpl implements CatDAO{
+public class CatDAOImpl implements CatDAO {
     @Override
     public CatsEntity findById(int id) {
         return SessionFactoryUtil.getSessionFactory().openSession().get(CatsEntity.class, id);
@@ -42,7 +42,7 @@ public class CatDAOImpl implements CatDAO{
 
     @Override
     public List<CatsEntity> getAll() {
-        List<CatsEntity> cats = (List<CatsEntity>)  SessionFactoryUtil.getSessionFactory().openSession().createQuery("From CatsEntity ").list();
+        List<CatsEntity> cats = (List<CatsEntity>) SessionFactoryUtil.getSessionFactory().openSession().createQuery("From CatsEntity ").list();
         return cats;
     }
 }

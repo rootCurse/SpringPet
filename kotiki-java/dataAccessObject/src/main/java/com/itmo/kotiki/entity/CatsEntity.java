@@ -16,31 +16,31 @@ public class CatsEntity {
     @Basic
     @Column(name = "birthday", nullable = false)
     private Date birthday;
-    @Basic
+    @Enumerated(EnumType.STRING)
     @Column(name = "color", nullable = true, length = -1)
-    private String color;
+    private Color color;
     @Basic
     @Column(name = "breed", nullable = true, length = -1)
     private String breed;
+    @ManyToOne
+    @JoinColumn(name = "human_Id", referencedColumnName = "human_id")
+    private HumansEntity humanByHumansId;
+
+    public CatsEntity() {
+    }
+
+    public CatsEntity(String name, Date date, Color color, String breed) {
+        this.name = name;
+        this.birthday = date;
+        this.color = color;
+        this.breed = breed;
+    }
 
     public String getBreed() {
         return breed;
     }
 
     public void setBreed(String breed) {
-        this.breed = breed;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "human_Id", referencedColumnName = "human_id")
-    private HumansEntity humanByHumansId;
-    public CatsEntity(){}
-
-    public CatsEntity(String name, Date date, Color color, String breed)
-    {
-        this.name=name;
-        this.birthday=date;
-        this.color= color.getCode();
         this.breed = breed;
     }
 
@@ -76,11 +76,11 @@ public class CatsEntity {
         this.birthday = birthday;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 }

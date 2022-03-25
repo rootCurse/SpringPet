@@ -12,6 +12,7 @@ import java.util.Set;
 
 public class HumanServiceImpl implements HumanService {
     private HumanDAO humanDAO = new HumanDAOImpl();
+
     @Override
     public void saveHuman(String name, Date birthday) {
         var human = new HumansEntity(name, birthday);

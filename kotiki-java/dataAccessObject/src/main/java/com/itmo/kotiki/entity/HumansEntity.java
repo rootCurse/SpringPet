@@ -20,10 +20,10 @@ public class HumansEntity {
     @OneToMany(mappedBy = "humanByHumansId")
     private Set<CatsEntity> catsByHumanId;
 
-    public HumansEntity() {}
+    public HumansEntity() {
+    }
 
-    public HumansEntity(String name, Date birthday)
-    {
+    public HumansEntity(String name, Date birthday) {
         this.name = name;
         this.birthday = birthday;
     }

@@ -10,12 +10,20 @@ import java.util.Set;
 
 public interface HumanService {
     void saveHuman(String name, Date birthday);
+
     void deleteHuman(int idOfHuman);
+
     List<HumansEntity> getAllHumans();
+
     String getName(int idOfHuman);
+
     Date getBirthday(int idOfHuman);
+
     Set<CatsEntity> getCatsOfHuman(int idOfHuman);
+
     void setName(int idOfHuman, String name);
+
     void setBirthday(int idOfHuman, Date birthday);
+
     void changeHumanDAO(HumanDAOImpl humanDAO);
 }

@@ -4,11 +4,14 @@ public enum Color {
     BLACK("BLACK"),
     WHITE("WHITE"),
     RED("RED"),
-    ORANGE("ORANGE"),
-    qwerty("qwerty");
+    ORANGE("ORANGE");
     private String code;
-    Color(String code){
+
+    Color(String code) {
         this.code = code;
     }
-    public String getCode(){ return code;}
+
+    public String getCode() {
+        return code;
+    }
 }

@@ -5,9 +5,13 @@ import com.itmo.kotiki.entity.CatsEntity;
 import java.util.List;
 
 public interface CatDAO {
-    public CatsEntity findById(int id);
-    public void save(CatsEntity cat);
-    public void update(CatsEntity cat);
-    public void delete(CatsEntity cat);
-    public List<CatsEntity> getAll();
+    CatsEntity findById(int id);
+
+    void save(CatsEntity cat);
+
+    void update(CatsEntity cat);
+
+    void delete(CatsEntity cat);
+
+    List<CatsEntity> getAll();
 }

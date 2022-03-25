@@ -1,9 +1,8 @@
 package com.itmo.kotiki.service.implement;
 
 import com.itmo.kotiki.dao.CatDAOImpl;
-import com.itmo.kotiki.dao.HumanDAOImpl;
-import com.itmo.kotiki.entity.Color;
 import com.itmo.kotiki.entity.CatsEntity;
+import com.itmo.kotiki.entity.Color;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

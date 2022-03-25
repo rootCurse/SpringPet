@@ -1,16 +1,15 @@
 package com.itmo.kotiki.service.implement;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import com.itmo.kotiki.dao.HumanDAO;
 import com.itmo.kotiki.dao.HumanDAOImpl;
 import com.itmo.kotiki.entity.HumansEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class HumanServiceImplTest {
 
@@ -27,7 +26,7 @@ class HumanServiceImplTest {
     }
 
     @Test
-    void getBirthday(){
+    void getBirthday() {
         Date date = new Date(1241225245);
         var human = new HumansEntity("Ivan", date);
         var humanService = new HumanServiceImpl();
@@ -40,7 +39,7 @@ class HumanServiceImplTest {
     }
 
     @Test
-    void setBirthday(){
+    void setBirthday() {
         Date date = new Date(1241225245);
         var human = new HumansEntity("Ivan", new Date(1));
         var humanService = new HumanServiceImpl();
@@ -54,7 +53,7 @@ class HumanServiceImplTest {
     }
 
     @Test
-    void setName(){
+    void setName() {
         var name = "qwerty";
         var human = new HumansEntity("Ivan", new Date(1));
         var humanService = new HumanServiceImpl();

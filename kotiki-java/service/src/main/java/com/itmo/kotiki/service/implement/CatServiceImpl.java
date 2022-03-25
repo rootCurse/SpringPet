@@ -2,19 +2,18 @@ package com.itmo.kotiki.service.implement;
 
 import com.itmo.kotiki.dao.CatDAO;
 import com.itmo.kotiki.dao.CatDAOImpl;
-import com.itmo.kotiki.dao.HumanDAO;
 import com.itmo.kotiki.dao.HumanDAOImpl;
 import com.itmo.kotiki.entity.CatsEntity;
+import com.itmo.kotiki.entity.Color;
 import com.itmo.kotiki.entity.HumansEntity;
 import com.itmo.kotiki.service.interfaces.CatService;
-
-import com.itmo.kotiki.entity.Color;
 
 import java.sql.Date;
 import java.util.List;
 
 public class CatServiceImpl implements CatService {
     private CatDAO catDAO = new CatDAOImpl();
+
     @Override
     public void saveCat(String nameOfCat, Date birthday, Color color, String breed) {
         var cat = new CatsEntity(nameOfCat, birthday, color, breed);
@@ -36,7 +35,7 @@ public class CatServiceImpl implements CatService {
     @Override
     public Color getColor(int idOfCat) {
         var cat = catDAO.findById(idOfCat);
-        return Color.valueOf(cat.getColor());
+        return cat.getColor();
     }
 
     @Override
@@ -79,7 +78,7 @@ public class CatServiceImpl implements CatService {
     @Override
     public void setColor(int idOfCat, Color color) {
         var cat = catDAO.findById(idOfCat);
-        cat.setColor(color.getCode());
+        cat.setColor(color);
         catDAO.update(cat);
     }
 

@@ -52,7 +52,7 @@ public class HumanDAOImpl implements HumanDAO {
 
     @Override
     public List<HumansEntity> getAll() {
-        List<HumansEntity> humans = (List<HumansEntity>)  SessionFactoryUtil.getSessionFactory().openSession().createQuery("From HumansEntity ").list();
+        List<HumansEntity> humans = (List<HumansEntity>) SessionFactoryUtil.getSessionFactory().openSession().createQuery("From HumansEntity ").list();
         return humans;
     }
 }
