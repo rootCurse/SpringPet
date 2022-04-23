@@ -9,7 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dataAccessObject</artifactId>
+    <artifactId>controller</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.itmo.kotiki-java</groupId>
+            <artifactId>service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.itmo.kotiki-java</groupId>
+            <artifactId>dataAccessObject</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
