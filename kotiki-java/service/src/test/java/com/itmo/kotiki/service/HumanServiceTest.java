@@ -1,14 +1,12 @@
 package com.itmo.kotiki.service;
 
 import com.itmo.kotiki.entity.HumansEntity;
-import com.itmo.kotiki.repo.CatsRepository;
 import com.itmo.kotiki.repo.HumanRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -20,7 +18,7 @@ class HumanServiceTest {
         var idOfHuman = human.getHumanId();
         HumanRepository humanRepository = mock(HumanRepository.class);
         when(humanRepository.getReferenceById(idOfHuman)).thenReturn(human);
-        var humanService = new HumanService(humanRepository);
+        var humanService = new HumanServiceImpl(humanRepository);
         String nameForAssert = humanService.getName(idOfHuman);
         Assertions.assertEquals("Ivan", nameForAssert);
     }
@@ -32,7 +30,7 @@ class HumanServiceTest {
         var idOfHuman = human.getHumanId();
         HumanRepository humanRepository = mock(HumanRepository.class);
         when(humanRepository.getReferenceById(idOfHuman)).thenReturn(human);
-        var humanService = new HumanService(humanRepository);
+        var humanService = new HumanServiceImpl(humanRepository);
         var dateForAssert = humanService.getBirthday(idOfHuman);
         Assertions.assertEquals(date, dateForAssert);
     }

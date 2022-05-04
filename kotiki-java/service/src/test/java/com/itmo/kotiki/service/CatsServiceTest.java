@@ -18,7 +18,7 @@ class CatsServiceTest {
         var catId = cat.getCatId();
         CatsRepository catsRepository = mock(CatsRepository.class);
         when(catsRepository.getReferenceById(catId)).thenReturn(cat);
-        CatsService catService = new CatsService(catsRepository);
+        CatsServiceImpl catService = new CatsServiceImpl(catsRepository);
         String nameForAssert = catService.getName(catId);
         Assertions.assertEquals("Ivan", nameForAssert);
     }
@@ -29,7 +29,7 @@ class CatsServiceTest {
         var catId = cat.getCatId();
         CatsRepository catsRepository = mock(CatsRepository.class);
         when(catsRepository.getReferenceById(catId)).thenReturn(cat);
-        CatsService catService = new CatsService(catsRepository);
+        CatsServiceImpl catService = new CatsServiceImpl(catsRepository);
         var dateForAssert = catService.getBirthday(catId);
         Assertions.assertEquals(new Date(1241225245), dateForAssert);
     }
@@ -40,7 +40,7 @@ class CatsServiceTest {
         var catId = cat.getCatId();
         CatsRepository catsRepository = mock(CatsRepository.class);
         when(catsRepository.getReferenceById(catId)).thenReturn(cat);
-        CatsService catService = new CatsService(catsRepository);
+        CatsServiceImpl catService = new CatsServiceImpl(catsRepository);
         var breedForAssert = catService.getBreed(catId);
         Assertions.assertEquals("scotland", breedForAssert);
     }
@@ -51,7 +51,7 @@ class CatsServiceTest {
         var catId = cat.getCatId();
         CatsRepository catsRepository = mock(CatsRepository.class);
         when(catsRepository.getReferenceById(catId)).thenReturn(cat);
-        var catService = new CatsService(catsRepository);
+        var catService = new CatsServiceImpl(catsRepository);
         Color color = catService.getColor(catId);
         Assertions.assertEquals(Color.BLACK, color);
     }
