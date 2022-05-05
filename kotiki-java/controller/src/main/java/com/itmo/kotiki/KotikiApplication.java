@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class KotikiApplication {
-
+// comment for test action
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(KotikiApplication.class);
 		ServiceController controller = new ServiceController(context.getBean(HumanRepository.class), context.getBean(CatsRepository.class));
