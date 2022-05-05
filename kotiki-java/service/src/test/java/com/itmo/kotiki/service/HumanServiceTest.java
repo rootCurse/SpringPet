@@ -17,7 +17,7 @@ class HumanServiceTest {
         var human = new HumansEntity("Ivan", new Date(1241225245));
         var idOfHuman = human.getHumanId();
         HumanRepository humanRepository = mock(HumanRepository.class);
-        when(humanRepository.getReferenceById(idOfHuman)).thenReturn(human);
+        when(humanRepository.getById(idOfHuman)).thenReturn(human);
         var humanService = new HumanServiceImpl(humanRepository);
         String nameForAssert = humanService.getName(idOfHuman);
         Assertions.assertEquals("Ivan", nameForAssert);
@@ -29,7 +29,7 @@ class HumanServiceTest {
         var human = new HumansEntity("Ivan", date);
         var idOfHuman = human.getHumanId();
         HumanRepository humanRepository = mock(HumanRepository.class);
-        when(humanRepository.getReferenceById(idOfHuman)).thenReturn(human);
+        when(humanRepository.getById(idOfHuman)).thenReturn(human);
         var humanService = new HumanServiceImpl(humanRepository);
         var dateForAssert = humanService.getBirthday(idOfHuman);
         Assertions.assertEquals(date, dateForAssert);

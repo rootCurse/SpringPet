@@ -1,6 +1,6 @@
 package com.itmo.kotiki.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.sql.Date;
 

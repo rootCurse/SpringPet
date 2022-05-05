@@ -21,22 +21,23 @@ public class CatsServiceImpl implements CatsService {
         catsDAO.save(cats);
     }
     public CatsEntity findCat(int id) {
-        return catsDAO.getReferenceById(id);
+
+        return catsDAO.getById(id);
     }
     public String getName(int id){
-        return catsDAO.getReferenceById(id).getName();
+        return catsDAO.getById(id).getName();
     }
     public Date getBirthday(int id) {
-        return catsDAO.getReferenceById(id).getBirthday();
+        return catsDAO.getById(id).getBirthday();
     }
     public String getBreed(int id){
-        return catsDAO.getReferenceById(id).getBreed();
+        return catsDAO.getById(id).getBreed();
     }
     public Color getColor(int id){
-        return catsDAO.getReferenceById(id).getColor();
+        return catsDAO.getById(id).getColor();
     }
     public HumansEntity getHuman(int id){
-        return catsDAO.getReferenceById(id).getHumanByHumansId();
+        return catsDAO.getById(id).getHumanByHumansId();
     }
     public List<CatsEntity> getAll(){
         return catsDAO.findAll();

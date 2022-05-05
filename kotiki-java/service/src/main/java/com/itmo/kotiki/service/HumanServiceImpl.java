@@ -17,7 +17,7 @@ public class HumanServiceImpl implements HumanService {
         this.humanDAO = humanDAO;
     }
     public String getName(int id){
-        return humanDAO.getReferenceById(id).getName();
+        return humanDAO.getById(id).getName();
     }
 
     public void save(HumansEntity human){
@@ -25,15 +25,15 @@ public class HumanServiceImpl implements HumanService {
     }
 
     public Date getBirthday(int id){
-        return humanDAO.getReferenceById(id).getBirthday();
+        return humanDAO.getById(id).getBirthday();
     }
 
     public Set<CatsEntity> getCatsOfHuman(int id){
-        return  humanDAO.getReferenceById(id).getCatsByHumanId();
+        return  humanDAO.getById(id).getCatsByHumanId();
     }
 
     public HumansEntity getHuman(int id){
-        return humanDAO.getReferenceById(id);
+        return humanDAO.getById(id);
     }
 
     public List<HumansEntity> getAllHumans(){
