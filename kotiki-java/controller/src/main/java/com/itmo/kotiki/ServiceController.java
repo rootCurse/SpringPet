@@ -32,64 +32,64 @@ public class ServiceController {
         return String.format("Hello %s!", name);
     }
 
-    @GetMapping("/getCatName")
+    @GetMapping("/catName")
     public String getCatName(@RequestParam int id){
         return String.format(catsService.getName(id));
     }
 
-    @GetMapping("/getCatBirthday")
+    @GetMapping("/catBirthday")
     public String getCatBirthday(@RequestParam int id) {
         return String.format(catsService.getBirthday(id).toString());
     }
 
-    @GetMapping("/getCatBreed")
+    @GetMapping("/catBreed")
     public String getCatBreed(@RequestParam int id) {
         return String.format(catsService.getBreed(id));
     }
 
-    @GetMapping("/getCatColor")
+    @GetMapping("/catColor")
     public String getCatColor(@RequestParam int id) {
         return String.format(catsService.getColor(id).getCode());
     }
 
-    @GetMapping("/getCatHuman")
+    @GetMapping("/catHuman")
     public HumansEntity getCatHuman(@RequestParam int id) {
         return catsService.getHuman(id);
     }
 
-    @GetMapping("/getCat")
+    @GetMapping("/cat")
     public CatsEntity getCat(@RequestParam int id){
         return catsService.findCat(id);
     }
 
-    @GetMapping("/getAllCats")
+    @GetMapping("/allCats")
     public List<CatsEntity> getAllCat(){
         return catsService.getAll();
     }
 
-    @PostMapping(value = "/saveNewCat", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/saveCat", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void saveNewCat(@RequestParam String name, String breed, Long birthday, Color color) {
         CatsEntity cat = new CatsEntity(name, new Date(birthday), color, breed);
         catsService.save(cat);
     }
 
-    @PostMapping(value = "/saveNewHuman", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/saveHuman", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void saveNewCat(@RequestParam String name, Long birthday) {
         HumansEntity human = new HumansEntity(name, new Date(birthday));
         humanService.save(human);
     }
 
-    @DeleteMapping("/deleteOneCat")
+    @DeleteMapping("/oneCat")
     public void deleteOneCat(int id){
         catsService.delete(id);
     }
 
-    @GetMapping("/getHumanName")
+    @GetMapping("/humanName")
     public String getHumanName(@RequestParam int id) {
         return String.format(humanService.getName(id));
     }
 
-    @GetMapping("/getHumanBirthday")
+    @GetMapping("/humanBirthday")
     public String getHumanBirthday(@RequestParam int id) {
         return String.format(humanService.getBirthday(id).toString());
     }
