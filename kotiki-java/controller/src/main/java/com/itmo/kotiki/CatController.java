@@ -11,12 +11,14 @@ import com.itmo.kotiki.service.HumanService;
 import com.itmo.kotiki.service.HumanServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
 
 @RestController("ServiceController")
+@Secured(value = "ROLE_ADMIN")
 public class CatController {
     private CatsService catsService;
 

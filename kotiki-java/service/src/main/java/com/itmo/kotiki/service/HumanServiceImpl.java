@@ -2,6 +2,7 @@ package com.itmo.kotiki.service;
 
 import com.itmo.kotiki.entity.*;
 import com.itmo.kotiki.repo.HumanRepository;
+import com.itmo.kotiki.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -20,6 +20,8 @@ public class HumansEntity {
     private Date birthday;
     @OneToMany(mappedBy = "humanByHumansId")
     private Set<CatsEntity> catsByHumanId;
+    @OneToOne(mappedBy = "humanByHumanId")
+    private UsersEntity userByUsersId;
 
     public HumansEntity() {
     }
