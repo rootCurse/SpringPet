@@ -17,19 +17,12 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController("ServiceController")
-public class ServiceController {
-    private HumanService humanService;
+public class CatController {
     private CatsService catsService;
 
     @Autowired
-    public ServiceController(HumanRepository humanRepository, CatsRepository catsRepository){
-        this.humanService = new HumanServiceImpl(humanRepository);
+    public CatController( CatsRepository catsRepository){
         this.catsService = new CatsServiceImpl(catsRepository);
-    }
-
-    @GetMapping("/hello")
-    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return String.format("Hello %s!", name);
     }
 
     @GetMapping("/catName")
@@ -73,25 +66,11 @@ public class ServiceController {
         catsService.save(cat);
     }
 
-    @PostMapping(value = "/saveHuman", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void saveNewCat(@RequestParam String name, Long birthday) {
-        HumansEntity human = new HumansEntity(name, new Date(birthday));
-        humanService.save(human);
-    }
-
     @DeleteMapping("/oneCat")
     public void deleteOneCat(int id){
         catsService.delete(id);
     }
 
-    @GetMapping("/humanName")
-    public String getHumanName(@RequestParam int id) {
-        return String.format(humanService.getName(id));
-    }
 
-    @GetMapping("/humanBirthday")
-    public String getHumanBirthday(@RequestParam int id) {
-        return String.format(humanService.getBirthday(id).toString());
-    }
 
 }
