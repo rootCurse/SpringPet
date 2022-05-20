@@ -11,7 +11,7 @@ import java.util.Collections;
 public class UserDetailsImpl implements UserDetails {
     private UsersEntity user;
 
-    public UserDetailsImpl(UsersEntity user){
+    public UserDetailsImpl(UsersEntity user) {
         this.user = user;
     }
 

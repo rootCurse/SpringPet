@@ -15,29 +15,30 @@ import java.util.List;
 @Secured(value = "ROLE_ADMIN")
 public class AdminController {
     private UserService userService;
+
     @Autowired
-    public AdminController(UserRepository userRepository){
+    public AdminController(UserRepository userRepository) {
         userService = new UserServiceImpl(userRepository);
     }
 
     @DeleteMapping("/oneUser")
-    public void deleteOneUser(@RequestParam int id){
+    public void deleteOneUser(@RequestParam int id) {
         userService.delete(id);
     }
 
     @PostMapping("/signUp")
-    public void signUp(@RequestParam String login, String password, Role role, int humanId){
+    public void signUp(@RequestParam String login, String password, Role role, int humanId) {
         UsersEntity user = new UsersEntity(login, password, role, userService.getHuman(humanId));
         userService.save(user);
     }
 
     @GetMapping("/allUsers")
-    public List<UsersEntity> getAllUsers(){
+    public List<UsersEntity> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/user")
-    public UsersEntity getUser(@RequestParam int id){
+    public UsersEntity getUser(@RequestParam int id) {
         return userService.getUser(id);
     }
 }

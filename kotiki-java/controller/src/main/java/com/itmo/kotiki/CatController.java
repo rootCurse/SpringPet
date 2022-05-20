@@ -4,11 +4,8 @@ import com.itmo.kotiki.entity.CatsEntity;
 import com.itmo.kotiki.entity.Color;
 import com.itmo.kotiki.entity.HumansEntity;
 import com.itmo.kotiki.repo.CatsRepository;
-import com.itmo.kotiki.repo.HumanRepository;
 import com.itmo.kotiki.service.CatsService;
 import com.itmo.kotiki.service.CatsServiceImpl;
-import com.itmo.kotiki.service.HumanService;
-import com.itmo.kotiki.service.HumanServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
@@ -23,12 +20,12 @@ public class CatController {
     private CatsService catsService;
 
     @Autowired
-    public CatController( CatsRepository catsRepository){
+    public CatController(CatsRepository catsRepository) {
         this.catsService = new CatsServiceImpl(catsRepository);
     }
 
     @GetMapping("/catName")
-    public String getCatName(@RequestParam int id){
+    public String getCatName(@RequestParam int id) {
         return String.format(catsService.getName(id));
     }
 
@@ -53,12 +50,12 @@ public class CatController {
     }
 
     @GetMapping("/cat")
-    public CatsEntity getCat(@RequestParam int id){
+    public CatsEntity getCat(@RequestParam int id) {
         return catsService.findCat(id);
     }
 
     @GetMapping("/allCats")
-    public List<CatsEntity> getAllCat(){
+    public List<CatsEntity> getAllCat() {
         return catsService.getAll();
     }
 
@@ -69,10 +66,9 @@ public class CatController {
     }
 
     @DeleteMapping("/oneCat")
-    public void deleteOneCat(int id){
+    public void deleteOneCat(int id) {
         catsService.delete(id);
     }
-
 
 
 }

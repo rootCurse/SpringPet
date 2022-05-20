@@ -2,7 +2,6 @@ package com.itmo.kotiki.service;
 
 import com.itmo.kotiki.entity.HumansEntity;
 import com.itmo.kotiki.repo.HumanRepository;
-import com.itmo.kotiki.repo.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

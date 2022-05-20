@@ -13,36 +13,46 @@ import java.util.List;
 @Service("CatsService")
 public class CatsServiceImpl implements CatsService {
     private final CatsRepository catsDAO;
+
     @Autowired
     public CatsServiceImpl(CatsRepository catsDAO) {
         this.catsDAO = catsDAO;
     }
-    public void save(CatsEntity cats){
+
+    public void save(CatsEntity cats) {
         catsDAO.save(cats);
     }
+
     public CatsEntity findCat(int id) {
 
         return catsDAO.getById(id);
     }
-    public String getName(int id){
+
+    public String getName(int id) {
         return catsDAO.getById(id).getName();
     }
+
     public Date getBirthday(int id) {
         return catsDAO.getById(id).getBirthday();
     }
-    public String getBreed(int id){
+
+    public String getBreed(int id) {
         return catsDAO.getById(id).getBreed();
     }
-    public Color getColor(int id){
+
+    public Color getColor(int id) {
         return catsDAO.getById(id).getColor();
     }
-    public HumansEntity getHuman(int id){
+
+    public HumansEntity getHuman(int id) {
         return catsDAO.getById(id).getHumanByHumansId();
     }
-    public List<CatsEntity> getAll(){
+
+    public List<CatsEntity> getAll() {
         return catsDAO.findAll();
     }
-    public void delete(int id){
+
+    public void delete(int id) {
         catsDAO.deleteById(id);
     }
 }

@@ -12,8 +12,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
     private UserRepository usersRepository;
+
     @Autowired
-    public UserDetailsServiceImpl(UserRepository userRepository){
+    public UserDetailsServiceImpl(UserRepository userRepository) {
         usersRepository = userRepository;
     }
 

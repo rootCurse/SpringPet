@@ -29,7 +29,7 @@ public class HumanController {
     private UserService userService;
 
     @Autowired
-    public HumanController(HumanRepository humanRepository, UserRepository userRepository){
+    public HumanController(HumanRepository humanRepository, UserRepository userRepository) {
         this.humanService = new HumanServiceImpl(humanRepository);
         this.userService = new UserServiceImpl(userRepository);
     }
@@ -44,18 +44,27 @@ public class HumanController {
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     @GetMapping("/humanName")
     public String getHumanName(@RequestParam int id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        var user = userService.getUser(authentication.getName());
+        if (user.getRole() != "ROLE_ADMIN")
+            return String.format(user.getHumansByHumanId().getName());
         return String.format(humanService.getName(id));
+
     }
 
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     @GetMapping("/humanBirthday")
     public String getHumanBirthday(@RequestParam int id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        var user = userService.getUser(authentication.getName());
+        if (user.getRole() != "ROLE_ADMIN")
+            return String.format(user.getHumansByHumanId().getBirthday().toString());
         return String.format(humanService.getBirthday(id).toString());
     }
 
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     @GetMapping("/myCats")
-    public Set<CatsEntity> getMyCats(){
+    public Set<CatsEntity> getMyCats() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userService.getUser(authentication.getName()).getHumansByHumanId().getCatsByHumanId();
     }

@@ -22,9 +22,10 @@ public class UsersEntity {
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private HumansEntity humanByHumanId;
 
-    public UsersEntity(){}
+    public UsersEntity() {
+    }
 
-    public UsersEntity(String login, String password, Role role, HumansEntity humanId){
+    public UsersEntity(String login, String password, Role role, HumansEntity humanId) {
         this.username = login;
         this.password = password;
         this.role = role.getCode();
