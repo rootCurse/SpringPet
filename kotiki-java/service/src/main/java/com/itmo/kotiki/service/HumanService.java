@@ -9,9 +9,14 @@ import java.util.Set;
 
 public interface HumanService {
     String getName(int id);
+
     void save(HumansEntity human);
+
     Date getBirthday(int id);
+
     Set<CatsEntity> getCatsOfHuman(int id);
+
     HumansEntity getHuman(int id);
+
     List<HumansEntity> getAllHumans();
 }

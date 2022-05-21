@@ -1,7 +1,6 @@
 package com.itmo.kotiki.entity;
 
 import javax.persistence.*;
-
 import java.sql.Date;
 import java.util.Set;
 
@@ -20,6 +19,8 @@ public class HumansEntity {
     private Date birthday;
     @OneToMany(mappedBy = "humanByHumansId")
     private Set<CatsEntity> catsByHumanId;
+    @OneToOne(mappedBy = "humanByHumanId")
+    private UsersEntity userByUsersId;
 
     public HumansEntity() {
     }
