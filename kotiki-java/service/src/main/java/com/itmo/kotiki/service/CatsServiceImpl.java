@@ -32,7 +32,21 @@ public class CatsServiceImpl implements CatsService {
         return catsDAO.getById(id).getName();
     }
 
+    public String getName(int id, int humanId) {
+        var cat = catsDAO.getById(id);
+        if (cat.getHumanByHumansId().getHumanId() != humanId)
+            return null;
+        return cat.getName();
+    }
+
     public Date getBirthday(int id) {
+        return catsDAO.getById(id).getBirthday();
+    }
+
+    public Date getBirthday(int id, int humanId) {
+        var cat = catsDAO.getById(id);
+        if (cat.getHumanByHumansId().getHumanId() != humanId)
+            return null;
         return catsDAO.getById(id).getBirthday();
     }
 
@@ -40,7 +54,21 @@ public class CatsServiceImpl implements CatsService {
         return catsDAO.getById(id).getBreed();
     }
 
+    public String getBreed(int id, int humanId) {
+        var cat = catsDAO.getById(id);
+        if (cat.getHumanByHumansId().getHumanId() != humanId)
+            return null;
+        return catsDAO.getById(id).getBreed();
+    }
+
     public Color getColor(int id) {
+        return catsDAO.getById(id).getColor();
+    }
+
+    public Color getColor(int id, int humanId) {
+        var cat = catsDAO.getById(id);
+        if (cat.getHumanByHumansId().getHumanId() != humanId)
+            return null;
         return catsDAO.getById(id).getColor();
     }
 

@@ -3,12 +3,10 @@ package com.itmo.kotiki;
 
 import com.itmo.kotiki.entity.CatsEntity;
 import com.itmo.kotiki.entity.HumansEntity;
+import com.itmo.kotiki.repo.CatsRepository;
 import com.itmo.kotiki.repo.HumanRepository;
 import com.itmo.kotiki.repo.UserRepository;
-import com.itmo.kotiki.service.HumanService;
-import com.itmo.kotiki.service.HumanServiceImpl;
-import com.itmo.kotiki.service.UserService;
-import com.itmo.kotiki.service.UserServiceImpl;
+import com.itmo.kotiki.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
@@ -27,11 +25,13 @@ public class HumanController {
 
     private HumanService humanService;
     private UserService userService;
+    private CatsService catsService;
 
     @Autowired
-    public HumanController(HumanRepository humanRepository, UserRepository userRepository) {
+    public HumanController(HumanRepository humanRepository, UserRepository userRepository, CatsRepository catsRepository) {
         this.humanService = new HumanServiceImpl(humanRepository);
         this.userService = new UserServiceImpl(userRepository);
+        this.catsService = new CatsServiceImpl(catsRepository);
     }
 
     @Secured(value = "ROLE_ADMIN")
@@ -67,5 +67,33 @@ public class HumanController {
     public Set<CatsEntity> getMyCats() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userService.getUser(authentication.getName()).getHumansByHumanId().getCatsByHumanId();
+    }
+
+    @Secured("ROLE_USER")
+    @GetMapping("/getNameOfMyCat")
+    public String getCatName(@RequestParam int id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return String.format(catsService.getName(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()));
+    }
+
+    @Secured("ROLE_USER")
+    @GetMapping("/getBirthdayOfMyCat")
+    public String getCatBirthday(@RequestParam int id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return String.format(catsService.getBirthday(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()).toString());
+    }
+
+    @Secured("ROLE_USER")
+    @GetMapping("/getBreedOfMyCat")
+    public String getCatBreed(@RequestParam int id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return String.format(catsService.getBreed(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()));
+    }
+
+    @Secured("ROLE_USER")
+    @GetMapping("/getColorOfMyCat")
+    public String getCatColor(@RequestParam int id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return String.format(catsService.getColor(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()).getCode());
     }
 }

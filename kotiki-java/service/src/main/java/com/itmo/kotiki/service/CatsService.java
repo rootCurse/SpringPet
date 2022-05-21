@@ -8,21 +8,30 @@ import java.sql.Date;
 import java.util.List;
 
 public interface CatsService {
-    public void save(CatsEntity cats);
 
-    public CatsEntity findCat(int id);
+    void save(CatsEntity cats);
 
-    public String getName(int id);
+    CatsEntity findCat(int id);
 
-    public Date getBirthday(int id);
+    String getName(int id);
 
-    public String getBreed(int id);
+    String getName(int id, int humanId);
 
-    public Color getColor(int id);
+    Date getBirthday(int id);
 
-    public HumansEntity getHuman(int id);
+    Date getBirthday(int id, int humanId);
 
-    public List<CatsEntity> getAll();
+    String getBreed(int id);
 
-    public void delete(int id);
+    String getBreed(int id, int humanId);
+
+    Color getColor(int id);
+
+    Color getColor(int id, int humanId);
+
+    HumansEntity getHuman(int id);
+
+    List<CatsEntity> getAll();
+
+    void delete(int id);
 }

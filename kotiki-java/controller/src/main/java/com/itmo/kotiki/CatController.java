@@ -4,6 +4,7 @@ import com.itmo.kotiki.entity.CatsEntity;
 import com.itmo.kotiki.entity.Color;
 import com.itmo.kotiki.entity.HumansEntity;
 import com.itmo.kotiki.repo.CatsRepository;
+import com.itmo.kotiki.repo.HumanRepository;
 import com.itmo.kotiki.service.CatsService;
 import com.itmo.kotiki.service.CatsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CatController {
     private CatsService catsService;
 
     @Autowired
-    public CatController(CatsRepository catsRepository) {
+    public CatController(CatsRepository catsRepository, HumanRepository humanRepository) {
         this.catsService = new CatsServiceImpl(catsRepository);
     }
 

@@ -4,9 +4,11 @@ import com.itmo.kotiki.entity.HumansEntity;
 import com.itmo.kotiki.entity.UsersEntity;
 import com.itmo.kotiki.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
