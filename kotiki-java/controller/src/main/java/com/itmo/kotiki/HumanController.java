@@ -68,32 +68,4 @@ public class HumanController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userService.getUser(authentication.getName()).getHumansByHumanId().getCatsByHumanId();
     }
-
-    @Secured("ROLE_USER")
-    @GetMapping("/getNameOfMyCat")
-    public String getCatName(@RequestParam int id) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return String.format(catsService.getName(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()));
-    }
-
-    @Secured("ROLE_USER")
-    @GetMapping("/getBirthdayOfMyCat")
-    public String getCatBirthday(@RequestParam int id) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return String.format(catsService.getBirthday(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()).toString());
-    }
-
-    @Secured("ROLE_USER")
-    @GetMapping("/getBreedOfMyCat")
-    public String getCatBreed(@RequestParam int id) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return String.format(catsService.getBreed(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()));
-    }
-
-    @Secured("ROLE_USER")
-    @GetMapping("/getColorOfMyCat")
-    public String getCatColor(@RequestParam int id) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return String.format(catsService.getColor(id, userService.getUser(authentication.getName()).getHumansByHumanId().getHumanId()).getCode());
-    }
 }
