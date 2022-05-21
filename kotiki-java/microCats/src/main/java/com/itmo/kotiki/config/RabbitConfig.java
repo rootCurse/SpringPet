@@ -14,6 +14,7 @@ public class RabbitConfig {
 
     @Bean(name = "CatName")
     public Queue catNameQueue() {
+
         return new Queue("CatName");
     }
 
